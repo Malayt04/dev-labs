@@ -1,0 +1,15 @@
+services:
+  devlab:
+    build: .
+    container_name: dev-lab-container
+    privileged: true
+    ports:
+      - "8080:8080"
+      - "3000:3000"
+      - "8000:8000"
+      - "5173:5173"
+    volumes:
+      - ./workspace:/home/devuser/workspace
+      - ./var/run/docker.sock:/var/run/docker.sock
+    stdin_open: true
+    tty: true
